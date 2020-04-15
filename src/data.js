@@ -14,7 +14,6 @@ arr of obj substitutes {
 
 */
 
-
 // const copy = {
 //   name: "",
 //   purpose: "",
@@ -325,5 +324,18 @@ const CAKE_FLOUR = {
     },
   ],
 };
+const SUBSTITUTES = {
+  BAKING_POWDER,
+  BAKING_SODA,
+  EGG,
+  BUTTERMILK,
+  BUTTER,
+  WHOLE_MILK,
+  MILK,
+  YEAST,
+  HEAVY_CREAM,
+  SELF_RISING_FLOUR,
+  CAKE_FLOUR,
+};
 
-export default const SUBSTITUTES = {BAKING_POWDER, BAKING_SODA, EGG, BUTTERMILK, BUTTER, WHOLE_MILK, MILK, YEAST, HEAVY_CREAM, SELF_RISING_FLOUR, CAKE_FLOUR}
+export default SUBSTITUTES;
