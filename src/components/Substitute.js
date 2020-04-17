@@ -7,14 +7,16 @@ import SubstituteCard from "./SubstituteCard";
 import Yield from "./Yield";
 
 const Substitute = ({ ...props }) => {
-  const { name } = props;
-  const { yield: amount, substitutes } = SUBSTITUTES[name];
+  const { ingredient, data } = props;
+  const { name, yield: amount, substitutes } = data;
+  // const { name } = props;
+  // const { yield: amount, substitutes } = SUBSTITUTES[name];
   const [size, unit] = amount;
   let count = 0;
   return (
     <Container>
       <h1>{name}</h1>
-      <SVG src={require(`../icons/${name}.svg`)} width={100} />
+      <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
       <Yield amount={amount} />
       <Grid container direction="column" justify="center" alignItems="center">
         {substitutes.map((substitute) => (

@@ -12,8 +12,9 @@ import Missing from "./components/Missing";
 import Search from "./components/Search";
 import Settings from "./components/Settings";
 import Substitute from "./components/Substitute";
+import SUBSTITUTES from "./data";
 
-function App() {
+const App = () => {
   return (
     <Grid container className="App">
       <Switch>
@@ -22,11 +23,20 @@ function App() {
         <Route path="/settings" component={Settings} exact />
         <Route path="/missing" component={Missing} exact />
         <Route path="/search" component={Search} exact />
-        <Route path="/Substitute" component={Substitute} exact />
+
+        {Object.keys(SUBSTITUTES).map((key) => (
+          <Route
+            path={`/substitute/${key}`}
+            component={() => (
+              <Substitute ingredient={key} data={SUBSTITUTES[key]} />
+            )}
+            exact
+            key={key}
+          />
+        ))}
       </Switch>
-      <Substitute name="HEAVY_CREAM" />
     </Grid>
   );
-}
+};
 
 export default App;

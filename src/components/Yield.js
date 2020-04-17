@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import EditIcon from "@material-ui/icons/Edit";
-import DoneIcon from "@material-ui/icons/Done";
+// import IconButton from "@material-ui/core/IconButton";
+// import EditIcon from "@material-ui/icons/Edit";
+// import DoneIcon from "@material-ui/icons/Done";
 
 import Modal from "@material-ui/core/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import MenuItem from "@material-ui/core/MenuItem";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
+// import AddIcon from "@material-ui/icons/Add";
+// import RemoveIcon from "@material-ui/icons/Remove";
 
 const RegularMode = ({ ...props }) => {
   const { size, unit, setEditMode } = props;
