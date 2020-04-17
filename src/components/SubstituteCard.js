@@ -18,10 +18,9 @@ const SubstituteCard = ({ ...props }) => {
   const { data } = props;
   const isVegan = data.vegan;
   const ingredients = getIngredients(data);
-  console.log(ingredients);
   let count = 0;
   return (
-    <Card style={{ background: "pink" }}>
+    <Card style={{ background: "pink", position: "relative" }}>
       <CardContent>
         {isVegan && <span style={{ float: "right" }}>vegan</span>}
         {Object.values(ingredients).map((ingredient) => (
