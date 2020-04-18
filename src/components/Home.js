@@ -19,7 +19,7 @@ const Home = () => {
           <h1>Home</h1>
         </Grid>
         {ACTIONS.map((action) => (
-          <Grid item style={{ width: "40%" }}>
+          <Grid item style={{ width: "40%" }} key={action}>
             <CardButton name={action} src={action} path={`/${action}`} />
           </Grid>
         ))}
