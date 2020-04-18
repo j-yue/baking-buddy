@@ -8,14 +8,16 @@ import Container from "@material-ui/core/Container";
 import "./App.css";
 import Faves from "./components/Faves";
 import Home from "./components/Home";
-import Missing from "./components/Missing";
 import Search from "./components/Search";
 import Settings from "./components/Settings";
 import Substitute from "./components/Substitute";
 import SUBSTITUTES from "./data";
 
 const App = () => {
-  const [favorites, setFavorites] = useState({});
+  const [favorites, setFavorites] = useState({
+    EGG: [1, 4],
+    BAKING_SODA: [2, 3],
+  });
   const [vegan, setVegan] = useState(false);
   const [theme, setTheme] = useState("themeA");
 
@@ -26,7 +28,11 @@ const App = () => {
         <Route
           path="/faves"
           component={() => (
-            <Faves favorites={favorites} setFavorites={setFavorites} />
+            <Faves
+              favorites={favorites}
+              setFavorites={setFavorites}
+              data={SUBSTITUTES}
+            />
           )}
           exact
         />
@@ -42,7 +48,6 @@ const App = () => {
           )}
           exact
         />
-        <Route path="/missing" component={Missing} exact />
         <Route path="/search" component={Search} exact />
 
         {Object.keys(SUBSTITUTES).map((key) => (
