@@ -49,7 +49,12 @@ const App = () => {
           <Route
             path={`/substitute/${key}`}
             component={() => (
-              <Substitute ingredient={key} data={SUBSTITUTES[key]} />
+              <Substitute
+                ingredient={key}
+                data={SUBSTITUTES[key]}
+                favorites={favorites}
+                setFavorites={setFavorites}
+              />
             )}
             exact
             key={key}
