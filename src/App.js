@@ -18,7 +18,7 @@ const App = () => {
   return (
     <Grid container className="App">
       <Switch>
-        {/* <Route path="/" component={Home} exact /> */}
+        <Route path="/" component={Home} exact />
         <Route path="/favorites" component={Favorites} exact />
         <Route path="/settings" component={Settings} exact />
         <Route path="/missing" component={Missing} exact />

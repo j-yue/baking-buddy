@@ -26,8 +26,9 @@ const CardButton = ({ ...props }) => {
         <Grid
           container
           direction="column"
-          justify="flex-start"
+          justify="center"
           alignItems="center"
+          style={{ minHeight: "20vh" }}
         >
           <Grid item>
             <SVG src={require(`../icons/${src}.svg`)} width={50} />
