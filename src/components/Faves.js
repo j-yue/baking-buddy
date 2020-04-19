@@ -20,7 +20,6 @@ const Faves = ({ ...props }) => {
 
   return (
     <React.Fragment>
-      <h1>Faves</h1>
       <Grid
         container
         direction="row"

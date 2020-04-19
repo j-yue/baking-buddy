@@ -13,7 +13,6 @@ const Settings = () => {
 
   return (
     <React.Fragment>
-      <h1 style={{ margin: "auto" }}>Settings</h1>
       <Grid container direction="column">
         <Grid item>
           <h2>Vegan</h2>

@@ -11,15 +11,12 @@ const Home = () => {
       <Grid
         container
         direction="row"
-        justify="space-evenly"
-        alignItems="center"
-        style={{ height: "100vh" }}
+        // justify="space-evenly"
+        // alignItems="center"
+        style={{ height: "100%", width: "100%" }}
       >
-        <Grid item style={{ width: "100%" }}>
-          <h1>Home</h1>
-        </Grid>
         {ACTIONS.map((action) => (
-          <Grid item style={{ width: "40%" }} key={action}>
+          <Grid item key={action} style={{ width: "40%" }}>
             <CardButton name={action} src={action} path={`/${action}`} />
           </Grid>
         ))}

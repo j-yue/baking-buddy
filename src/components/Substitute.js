@@ -15,7 +15,6 @@ const Substitute = ({ ...props }) => {
   let count = 0;
   return (
     <Container>
-      <h1>{name}</h1>
       <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
       <Yield amount={amount} />
       <Grid container direction="column" justify="center" alignItems="center">
