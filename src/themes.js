@@ -1,6 +1,7 @@
 //generate palette object that follows MUI's palette obj schema
 const createPalette = (primary, secondary) => {
   return {
+    palette: {
       primary: { main: primary },
       secondary: { main: secondary },
     },
