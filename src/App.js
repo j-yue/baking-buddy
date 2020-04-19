@@ -40,67 +40,68 @@ const App = () => {
 
   useEffect(() => {
     setScreen(headerFromPath(location));
-    console.log("screen is", screen);
   }, [location]);
 
   return (
-    <Grid
-      container
-      className="App"
-      style={{ height: "100vh" }}
-      direction="row"
-      justify="center"
-      alignItems="center"
-    >
-      <Grid item style={{ height: "20%", width: "100%" }}>
-        <h1>{screen}</h1>
-      </Grid>
-      <Grid item style={{ height: "80%", width: "100%" }}>
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route
-            path="/faves"
-            component={() => (
-              <Faves
-                favorites={favorites}
-                setFavorites={setFavorites}
-                data={SUBSTITUTES}
-              />
-            )}
-            exact
-          />
-          <Route
-            path="/settings"
-            component={() => (
-              <Settings
-                theme={theme}
-                setTheme={setTheme}
-                vegan={vegan}
-                setVegan={setVegan}
-              />
-            )}
-            exact
-          />
-          <Route path="/search" component={Search} exact />
-
-          {Object.keys(SUBSTITUTES).map((key) => (
+    <Container>
+      <Grid
+        container
+        className="App"
+        style={{ height: "100vh" }}
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item style={{ height: "20%", width: "100%" }}>
+          <h1>{screen}</h1>
+        </Grid>
+        <Grid item style={{ height: "80%", width: "100%" }}>
+          <Switch>
+            <Route path="/" component={Home} exact />
             <Route
-              path={`/substitute/${key}`}
+              path="/faves"
               component={() => (
-                <Substitute
-                  ingredient={key}
-                  data={SUBSTITUTES[key]}
+                <Faves
                   favorites={favorites}
                   setFavorites={setFavorites}
+                  data={SUBSTITUTES}
                 />
               )}
               exact
-              key={key}
             />
-          ))}
-        </Switch>
+            <Route
+              path="/settings"
+              component={() => (
+                <Settings
+                  theme={theme}
+                  setTheme={setTheme}
+                  vegan={vegan}
+                  setVegan={setVegan}
+                />
+              )}
+              exact
+            />
+            <Route path="/search" component={Search} exact />
+
+            {Object.keys(SUBSTITUTES).map((key) => (
+              <Route
+                path={`/substitute/${key}`}
+                component={() => (
+                  <Substitute
+                    ingredient={key}
+                    data={SUBSTITUTES[key]}
+                    favorites={favorites}
+                    setFavorites={setFavorites}
+                  />
+                )}
+                exact
+                key={key}
+              />
+            ))}
+          </Switch>
+        </Grid>
       </Grid>
-    </Grid>
+    </Container>
   );
 };
 

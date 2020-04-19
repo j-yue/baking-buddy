@@ -14,7 +14,7 @@ const Substitute = ({ ...props }) => {
   const [size, unit] = amount;
   let count = 0;
   return (
-    <Container>
+    <React.Fragment>
       <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
       <Yield amount={amount} />
       <Grid container direction="column" justify="center" alignItems="center">
@@ -24,7 +24,7 @@ const Substitute = ({ ...props }) => {
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </React.Fragment>
   );
 };
 
