@@ -3,17 +3,18 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
+// import Container from "@material-ui/core/Container";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import "./App.css";
 import Faves from "./components/Faves";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import Settings from "./components/Settings";
-import Substitute from "./components/Substitute";
 import SUBSTITUTES from "./data";
+import SubstituteRoutes from "./components/SubstituteRoutes";
+import Navbar from "./components/Navbar";
 
 import * as PALETTES from "./palettes.js";
 import { createTheme } from "./theme.js";
@@ -53,70 +54,52 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container>
-        <Grid
-          container
-          className="App"
-          style={{ height: "100vh" }}
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <Grid item style={{ height: "20%", width: "100%" }}>
-            <Typography variant="h1" component="h1">
-              {screen}
-            </Typography>
-          </Grid>
-          <Grid item style={{ height: "80%", width: "100%" }}>
-            <Switch>
-              <Route path="/" component={Home} exact />
-              <Route
-                path="/faves"
-                component={() => (
-                  <Faves
-                    favorites={favorites}
-                    setFavorites={setFavorites}
-                    data={SUBSTITUTES}
-                  />
-                )}
-                exact
-              />
-              <Route
-                path="/settings"
-                component={() => (
-                  <Settings
-                    palette={palette}
-                    setPalette={setPalette}
-                    allPalettes={PALETTES}
-                    // cake={cake}
-                    // setCake={setCake}
-                    vegan={vegan}
-                    setVegan={setVegan}
-                  />
-                )}
-                exact
-              />
-              <Route path="/search" component={Search} exact />
-
-              {Object.keys(SUBSTITUTES).map((key) => (
-                <Route
-                  path={`/substitute/${key}`}
-                  component={() => (
-                    <Substitute
-                      ingredient={key}
-                      data={SUBSTITUTES[key]}
-                      favorites={favorites}
-                      setFavorites={setFavorites}
-                    />
-                  )}
-                  exact
-                  key={key}
+      <Navbar screen={screen} />
+      <Grid
+        container
+        className="App"
+        style={{ paddingTop: "15vh", height: "85vh" }}
+        direction="row"
+        justify="center"
+        alignItems="center"
+      >
+        <Grid item style={{ height: "100%", width: "100%" }}>
+          <Switch>
+            <Route path="/" component={Home} exact />
+            <Route
+              path="/faves"
+              component={() => (
+                <Faves
+                  favorites={favorites}
+                  setFavorites={setFavorites}
+                  data={SUBSTITUTES}
                 />
-              ))}
-            </Switch>
-          </Grid>
+              )}
+              exact
+            />
+            <Route
+              path="/settings"
+              component={() => (
+                <Settings
+                  palette={palette}
+                  setPalette={setPalette}
+                  allPalettes={PALETTES}
+                  vegan={vegan}
+                  setVegan={setVegan}
+                />
+              )}
+              exact
+            />
+            <Route path="/search" component={Search} exact />
+
+            <SubstituteRoutes
+              substitutes={SUBSTITUTES}
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
+          </Switch>
         </Grid>
-      </Container>
+      </Grid>
     </ThemeProvider>
   );
 };

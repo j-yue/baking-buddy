@@ -1,6 +1,7 @@
 import React from "react";
 
 import Grid from "@material-ui/core/Grid";
+import { useTheme } from "@material-ui/core/styles";
 import CardButton from "./CardButton";
 
 const ACTIONS = ["search", "faves", "settings", "info"];
