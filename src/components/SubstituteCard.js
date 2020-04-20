@@ -3,7 +3,7 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-// import Typography from "@material-ui/core/Typography";
+import Typography from "@material-ui/core/Typography";
 
 import Ingredient from "./Ingredient";
 import LikeButton from "./LikeButton";
@@ -22,7 +22,15 @@ const SubstituteCard = ({ ...props }) => {
   return (
     <Card style={{ background: "pink", position: "relative" }}>
       <CardContent>
-        {isVegan && <span style={{ float: "right" }}>vegan</span>}
+        {isVegan && (
+          <Typography
+            variant="subtitle1"
+            component="span"
+            style={{ float: "right" }}
+          >
+            vegan
+          </Typography>
+        )}
         {Object.values(ingredients).map((ingredient) => (
           <Ingredient data={ingredient} key={count++} />
         ))}

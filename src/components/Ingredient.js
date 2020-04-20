@@ -8,15 +8,17 @@ const Ingredient = ({ data }) => {
   return (
     <Grid container>
       <Grid item xs={8}>
-        <Typography>{ingredient}</Typography>
+        <Typography variant="h1" component="h1">
+          {ingredient}
+        </Typography>
       </Grid>
 
       <Grid item xs={1}>
-        <Typography>{amount}</Typography>
+        <Typography variant="body1">{amount}</Typography>
       </Grid>
 
       <Grid item xs={1}>
-        <Typography>{unit}</Typography>
+        <Typography variant="body1">{unit}</Typography>
       </Grid>
     </Grid>
   );

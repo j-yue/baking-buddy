@@ -13,7 +13,6 @@ const Home = () => {
         direction="row"
         justify="space-evenly"
         alignItems="center"
-        alignContent="space-evenly"
         style={{ height: "80%", width: "100%" }}
       >
         {ACTIONS.map((action) => (
