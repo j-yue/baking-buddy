@@ -20,7 +20,13 @@ const SubstituteCard = ({ ...props }) => {
   const ingredients = getIngredients(data);
   let count = 0;
   return (
-    <Card style={{ background: "pink", position: "relative" }}>
+    <Card
+      style={
+        {
+          // position: "relative",
+        }
+      }
+    >
       <CardContent>
         {isVegan && (
           <Typography

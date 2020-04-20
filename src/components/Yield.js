@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 // import IconButton from "@material-ui/core/IconButton";
 // import EditIcon from "@material-ui/icons/Edit";
 // import DoneIcon from "@material-ui/icons/Done";
-
+import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import FormControl from "@material-ui/core/FormControl";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -16,7 +16,9 @@ const RegularMode = ({ ...props }) => {
   const { size, unit, setEditMode } = props;
   return (
     <React.Fragment>
-      <Grid item xs={11}>{`${size} ${unit}`}</Grid>
+      <Grid item xs={11}>
+        <Typography variant="body1">{`${size} ${unit}`}</Typography>
+      </Grid>
       {/* <Grid item xs={1}>
         <IconButton aria-label="edit" onClick={() => setEditMode(true)}>
           <EditIcon />

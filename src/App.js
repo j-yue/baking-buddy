@@ -28,11 +28,30 @@ const THEME = createMuiTheme({
       "Didact Gothic",
     ].join(","),
     fontSize: 10,
+
     h1: {
-      fontSize: "3rem",
+      fontSize: "2rem",
+    },
+    body1: {
+      fontFamily: [
+        "Didact Gothic",
+        "Raleway",
+        "Oxygen",
+        "Didact Gothic",
+        "sans-serif",
+      ].join(","),
+      fontSize: "1.25rem",
+    },
+    body2: {
+      fontSize: "1rem",
+    },
+    subtitle1: {
+      fontWeight: "bold",
+      color: "#525A33",
+      fontSize: "1.5rem",
+      textTransform: "uppercase",
     },
   },
-  overrides: {},
 });
 
 const headerFromPath = (path) => {

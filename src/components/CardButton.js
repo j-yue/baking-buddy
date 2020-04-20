@@ -30,7 +30,9 @@ const CardButton = ({ ...props }) => {
             <SVG src={require(`../icons/${src}.svg`)} width={50} />
           </Grid>
           <Grid item>
-            <Typography>{name.toUpperCase()}</Typography>
+            <Typography variant="body2" component="h3">
+              {name.toUpperCase()}
+            </Typography>
           </Grid>
         </Grid>
       </Card>
