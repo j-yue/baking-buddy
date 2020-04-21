@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Grid from "@material-ui/core/Grid";
+import React from "react";
 import Box from "@material-ui/core/Box";
 import VeganSettings from "./VeganSettings";
 import ThemeSettings from "./ThemeSettings";
