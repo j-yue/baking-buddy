@@ -18,7 +18,13 @@ const LikeButton = ({ status }) => {
   }, []);
 
   return (
-    <IconButton onClick={() => handleClick(icon, setIcon)}>{icon}</IconButton>
+    <IconButton
+      color="secondary"
+      style={{ transform: "scale(1.75)", margin: "auto" }}
+      onClick={() => handleClick(icon, setIcon)}
+    >
+      {icon}
+    </IconButton>
   );
 };
 

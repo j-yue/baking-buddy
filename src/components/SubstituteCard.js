@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -7,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 import Ingredient from "./Ingredient";
 import LikeButton from "./LikeButton";
+
 const getIngredients = (data) => {
   let result = data;
   delete result.vegan;
@@ -19,13 +21,13 @@ const SubstituteCard = ({ ...props }) => {
   const isVegan = data.vegan;
   const ingredients = getIngredients(data);
   let count = 0;
+  const theme = useTheme();
   return (
     <Card
-      style={
-        {
-          // position: "relative",
-        }
-      }
+      style={{
+        background: theme.palette.primary.light,
+        // position: "relative",
+      }}
     >
       <CardContent>
         {isVegan && (
