@@ -21,7 +21,7 @@ const PaletteRadio = ({ palette }) => {
 };
 
 const ThemeSettings = ({ ...props }) => {
-  const { theme, setTheme } = props;
+  const { palette, setPalette } = props;
   const result = Object.keys(PALETTES).map((palette) => (
     <PaletteRadio palette={palette} key={palette} />
   ));
@@ -33,9 +33,8 @@ const ThemeSettings = ({ ...props }) => {
       <FormControl component="fieldset">
         <RadioGroup
           aria-label="themes"
-          // name="gender1"
-          value={theme}
-          onChange={(e) => setTheme(e.target.value)}
+          value={palette}
+          onChange={(e) => setPalette(e.target.value)}
           style={{
             width: "100%",
             display: "flex",

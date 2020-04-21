@@ -86,7 +86,6 @@ const App = () => {
                 <Settings
                   palette={palette}
                   setPalette={setPalette}
-                  allPalettes={PALETTES}
                   vegan={vegan}
                   setVegan={setVegan}
                 />
