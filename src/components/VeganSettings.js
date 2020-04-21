@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Switch from "@material-ui/core/Switch";
 
-const VeganMessage = (status) => {
+const VeganMessage = ({ status }) => {
   if (status)
     return (
       <Typography variant="body1" component="p">
