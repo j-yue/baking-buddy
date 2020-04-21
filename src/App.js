@@ -38,7 +38,7 @@ const App = () => {
   const history = useHistory();
   const location = useLocation();
   const [vegan, setVegan] = useState(false);
-  const [palette, setPalette] = useState("redVelvet");
+  const [palette, setPalette] = useState("pinkLemonade");
   const [theme, setTheme] = useState(createTheme(palette));
   const [screen, setScreen] = useState(headerFromPath(location));
 
@@ -59,14 +59,14 @@ const App = () => {
         container
         className="App"
         style={{
-          height: "85vh",
+          minHeight: "85vh",
           background: theme.palette.secondary.light,
         }}
         direction="row"
         justify="center"
         alignItems="center"
       >
-        <Grid item style={{ height: "100%", width: "100%" }}>
+        <Grid item style={{ height: "100%", width: "90%" }}>
           <Switch>
             <Route path="/" component={Home} exact />
             <Route

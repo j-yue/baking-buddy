@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-import Container from "@material-ui/core/Container";
-
+import { useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-// import Box from "@material-ui/core/Box";
+import Box from "@material-ui/core/Box";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-
+import InputAdornment from "@material-ui/core/InputAdornment";
 import SUBSTITUTES from "../data";
 import SearchCardButton from "./SearchCardButton";
 
@@ -24,22 +23,33 @@ const handleChange = (search, setSearchResults) => {
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState(INGREDIENTS);
-
+  const theme = useTheme();
   return (
-    <Container>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <SearchIcon />
+    <React.Fragment>
+      <Box p="1.5rem 0 1rem 0">
         <InputBase
-          placeholder="Search…"
-          inputProps={{ "aria-label": "search" }}
+          placeholder="Search ingredient"
+          startAdornment={
+            <InputAdornment position="start">
+              <SearchIcon fontSize="large" color="primary" />
+            </InputAdornment>
+          }
+          style={{
+            width: "100%",
+            padding: "1rem",
+            background: "#fff",
+            border: "2px solid black",
+            borderRadius: "5px",
+            borderColor: theme.palette.secondary.dark,
+          }}
           onChange={(e) => handleChange(e.target.value, setSearchResults)}
         />
-      </Grid>
+      </Box>
       <Grid
         container
         direction="row"
-        justify="space-evenly"
-        alignItems="center"
+        justify="space-between"
+        alignItems="flex-start"
       >
         {searchResults.map((result) => {
           const { key, name } = result;
@@ -48,8 +58,8 @@ const Search = () => {
             <Grid
               item
               style={{
-                width: "40%",
-                margin: ".5rem",
+                width: "45%",
+                margin: "1rem 0",
               }}
               key={key}
             >
@@ -62,7 +72,7 @@ const Search = () => {
           );
         })}
       </Grid>
-    </Container>
+    </React.Fragment>
   );
 };
 
