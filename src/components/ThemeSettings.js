@@ -42,6 +42,7 @@ const ThemeSettings = ({ ...props }) => {
             flexFlow: "row wrap",
             justifyContent: "center",
             alignItems: "center",
+            paddingTop: "1rem",
           }}
         >
           {result}

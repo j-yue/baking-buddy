@@ -10,19 +10,12 @@ const Settings = () => {
 
   return (
     <React.Fragment>
-      {/* <Grid container direction="column">
-        <Grid item> */}
-      <Box mb="1rem" mt="1rem">
+      <Box mb="2.5rem" mt="1rem">
         <VeganSettings status={vegan} vegan={vegan} setVegan={setVegan} />
       </Box>
-      {/* </Grid> */}
-
-      {/* <Grid item> */}
       <Box pb="2rem">
         <ThemeSettings theme={theme} setTheme={setTheme} />
       </Box>
-      {/* </Grid>
-      </Grid> */}
     </React.Fragment>
   );
 };

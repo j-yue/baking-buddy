@@ -22,7 +22,7 @@ const VeganSettings = ({ ...props }) => {
 
   return (
     <React.Fragment>
-      <Typography variant="h2" component="h2">
+      <Typography variant="h2" component="h2" style={{ paddingBottom: "1rem" }}>
         Vegan
       </Typography>
       <Switch
