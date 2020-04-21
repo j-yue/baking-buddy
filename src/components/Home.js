@@ -25,11 +25,14 @@ const Home = () => {
       style={{
         height: "100%",
         width: "100%",
-        padding: "10% 0",
       }}
     >
       {Object.keys(ACTIONS).map((action) => (
-        <Grid item key={action} style={{ width: "40%", height: "fit-content" }}>
+        <Grid
+          item
+          key={action}
+          style={{ width: "40%", height: "fit-content", marginBottom: "1rem" }}
+        >
           <HomeCardButton
             name={action}
             src={action}
