@@ -20,13 +20,13 @@ const Navbar = ({ ...props }) => {
         }}
       >
         {/* <IconButton style={{ color: "white", transform: "scale(1.25)" }}> */}
-        <IconButton>
+        <IconButton style={{ color: "inherit" }}>
           <ArrowBackIcon fontSize="large" />
         </IconButton>
         <Typography variant="h1" component="h1" style={{}}>
           {screen}
         </Typography>
-        <IconButton>
+        <IconButton style={{ color: "inherit" }}>
           <HomeIcon fontSize="large" />
         </IconButton>
       </Toolbar>

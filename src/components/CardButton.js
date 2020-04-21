@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SVG from "react-inlinesvg";
+
+import { useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 
 const CardButton = ({ ...props }) => {
-  //   const { key: ingredientKey, name, path } = props;
-  const { name, src, path } = props;
-
+  const { name, path, component: Component } = props;
+  const theme = useTheme();
   return (
     <Link
       to={path}
@@ -18,7 +18,9 @@ const CardButton = ({ ...props }) => {
         "&:hover": { cursor: "pointer" },
       }}
     >
-      <Card style={{ padding: ".5rem" }}>
+      <Card
+        style={{ padding: ".5rem", background: theme.palette.primary.light }}
+      >
         <Grid
           container
           direction="column"
@@ -27,7 +29,7 @@ const CardButton = ({ ...props }) => {
           style={{ minHeight: "20vh" }}
         >
           <Grid item>
-            <SVG src={require(`../icons/${src}.svg`)} width={50} />
+            <Component />
           </Grid>
           <Grid item>
             <Typography variant="body2" component="h3">

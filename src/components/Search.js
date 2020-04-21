@@ -7,8 +7,8 @@ import Grid from "@material-ui/core/Grid";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 
-import CardButton from "./CardButton";
 import SUBSTITUTES from "../data";
+import SearchCardButton from "./SearchCardButton";
 
 const INGREDIENTS = Object.keys(SUBSTITUTES).map((ingredient) => ({
   key: ingredient,
@@ -19,7 +19,6 @@ const handleChange = (search, setSearchResults) => {
   const results = Object.values(INGREDIENTS).filter((ingredient) =>
     ingredient.name.includes(search.toLowerCase())
   );
-  // return results;
   setSearchResults(results);
 };
 
@@ -54,7 +53,11 @@ const Search = () => {
               }}
               key={key}
             >
-              <CardButton name={name} src={key} path={`/substitute/${key}`} />
+              <SearchCardButton
+                name={name}
+                src={key}
+                path={`/substitute/${key}`}
+              />
             </Grid>
           );
         })}

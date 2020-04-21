@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Dialog from "@material-ui/core/Dialog";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import CardButton from "./CardButton";
+import SearchCardButton from "./SearchCardButton";
 import SubstituteCard from "./SubstituteCard";
 
 /*
@@ -36,7 +36,11 @@ const Faves = ({ ...props }) => {
             }}
             style={{ width: "40%" }}
           >
-            <CardButton name={data[key]["name"]} src={key} path={"/faves"} />
+            <SearchCardButton
+              name={data[key]["name"]}
+              src={key}
+              path={"/faves"}
+            />
           </Grid>
         ))}
       </Grid>
