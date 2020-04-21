@@ -65,7 +65,7 @@ const EGG = {
       vegan: true,
     },
     { id: 3, ingredient1: ["pureed silken tofu", 0.25, "cup"], vegan: true },
-    { id: 4, ingredient1: ["mayo", 3, "tbs"], vegan: true },
+    { id: 4, ingredient1: ["mayo", 3, "tbs"], vegan: false },
   ],
 };
 
