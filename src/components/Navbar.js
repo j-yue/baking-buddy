@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -7,7 +8,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import Typography from "@material-ui/core/Typography";
 
 const Navbar = ({ ...props }) => {
-  const { screen } = props;
+  const { screen, history } = props;
   return (
     <AppBar position="static" style={{ textAlign: "center", height: "15vh" }}>
       <Toolbar
@@ -19,15 +20,19 @@ const Navbar = ({ ...props }) => {
           height: "100%",
         }}
       >
-        {/* <IconButton style={{ color: "white", transform: "scale(1.25)" }}> */}
-        <IconButton style={{ color: "inherit" }}>
+        <IconButton
+          style={{ color: "inherit" }}
+          onClick={() => history.goBack()}
+        >
           <ArrowBackIcon fontSize="large" />
         </IconButton>
         <Typography variant="h1" component="h1" style={{}}>
           {screen}
         </Typography>
         <IconButton style={{ color: "inherit" }}>
-          <HomeIcon fontSize="large" />
+          <Link to="/" style={{ color: "inherit" }}>
+            <HomeIcon fontSize="large" />
+          </Link>
         </IconButton>
       </Toolbar>
     </AppBar>

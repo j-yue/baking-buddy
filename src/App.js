@@ -54,7 +54,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar screen={screen} />
+      <Navbar screen={screen} history={history} />
       <Grid
         container
         className="App"
