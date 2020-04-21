@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import SVG from "react-inlinesvg";
 import SUBSTITUTES from "../data";
@@ -15,7 +15,9 @@ const Substitute = ({ ...props }) => {
   let count = 0;
   return (
     <React.Fragment>
-      <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
+      <Box p="1rem">
+        <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
+      </Box>
       <Yield amount={amount} />
       <Grid container direction="column" justify="center" alignItems="center">
         {substitutes.map((substitute) => (
