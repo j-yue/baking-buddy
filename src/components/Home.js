@@ -23,8 +23,9 @@ const Home = () => {
       justify="space-evenly"
       alignItems="center"
       style={{
-        height: "80%",
+        height: "100%",
         width: "100%",
+        padding: "10% 0",
       }}
     >
       {Object.keys(ACTIONS).map((action) => (

@@ -59,7 +59,6 @@ const App = () => {
         container
         className="App"
         style={{
-          paddingTop: "15vh",
           height: "85vh",
           background: theme.palette.secondary.light,
         }}
