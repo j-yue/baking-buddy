@@ -14,7 +14,6 @@ const coffee = createPalette("#492A20", "#b08858");
 const pinkLemonade = createPalette("#e4798a", "#f7e39c");
 const coconut = createPalette("#e2d4ca", "#8f4d2d");
 const carrotCake = createPalette("#cd6a3d", "#e0d9bc");
-const lemonMeringue = createPalette("#E4D5B1", "#ad8f24");
 const blackForest = createPalette("#301e1c", "#9E2C26");
 const tiramisu = createPalette("#DFC8B9", "#a86d4b");
 
@@ -25,7 +24,6 @@ export {
   pinkLemonade,
   coconut,
   carrotCake,
-  lemonMeringue,
   blackForest,
   tiramisu,
 };
