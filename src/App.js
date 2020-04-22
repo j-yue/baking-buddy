@@ -15,6 +15,7 @@ import Settings from "./components/Settings";
 import SUBSTITUTES from "./data";
 import SubstituteRoutes from "./components/SubstituteRoutes";
 import Navbar from "./components/Navbar";
+import FavoritesContext from "./context/FavoritesContext";
 
 import * as PALETTES from "./palettes.js";
 import { createTheme } from "./theme.js";
@@ -55,53 +56,55 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Navbar screen={screen} history={history} />
-      <Grid
-        container
-        className="App"
-        style={{
-          minHeight: "85vh",
-          background: theme.palette.secondary.light,
-        }}
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <Grid item style={{ height: "100%", width: "90%" }}>
-          <Switch>
-            <Route path="/" component={Home} exact />
-            <Route
-              path="/faves"
-              component={() => (
-                <Faves
-                  favorites={favorites}
-                  setFavorites={setFavorites}
-                  data={SUBSTITUTES}
-                />
-              )}
-              exact
-            />
-            <Route
-              path="/settings"
-              component={() => (
-                <Settings
-                  palette={palette}
-                  setPalette={setPalette}
-                  vegan={vegan}
-                  setVegan={setVegan}
-                />
-              )}
-              exact
-            />
-            <Route path="/search" component={Search} exact />
+      <FavoritesContext.Provider value={{ favorites, setFavorites }}>
+        <Grid
+          container
+          className="App"
+          style={{
+            minHeight: "85vh",
+            background: theme.palette.secondary.light,
+          }}
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <Grid item style={{ height: "100%", width: "90%" }}>
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route
+                path="/faves"
+                component={() => (
+                  <Faves
+                    favorites={favorites}
+                    setFavorites={setFavorites}
+                    data={SUBSTITUTES}
+                  />
+                )}
+                exact
+              />
+              <Route
+                path="/settings"
+                component={() => (
+                  <Settings
+                    palette={palette}
+                    setPalette={setPalette}
+                    vegan={vegan}
+                    setVegan={setVegan}
+                  />
+                )}
+                exact
+              />
+              <Route path="/search" component={Search} exact />
 
-            <SubstituteRoutes
-              substitutes={SUBSTITUTES}
-              favorites={favorites}
-              setFavorites={setFavorites}
-            />
-          </Switch>
+              <SubstituteRoutes
+                substitutes={SUBSTITUTES}
+                // favorites={favorites}
+                // setFavorites={setFavorites}
+              />
+            </Switch>
+          </Grid>
         </Grid>
-      </Grid>
+      </FavoritesContext.Provider>
     </ThemeProvider>
   );
 };

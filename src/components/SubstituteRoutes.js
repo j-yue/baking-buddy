@@ -3,7 +3,8 @@ import { Route } from "react-router-dom";
 import Substitute from "./Substitute";
 
 const SubstituteRoutes = ({ ...props }) => {
-  const { substitutes, favorites, setFavorites } = props;
+  // const { substitutes, favorites, setFavorites } = props;
+  const { substitutes } = props;
   return (
     <React.Fragment>
       {Object.keys(substitutes).map((key) => (
@@ -11,10 +12,12 @@ const SubstituteRoutes = ({ ...props }) => {
           path={`/substitute/${key}`}
           component={() => (
             <Substitute
-              ingredient={key}
               data={substitutes[key]}
-              favorites={favorites}
-              setFavorites={setFavorites}
+              ingredient={key}
+              // ingredient={key}
+              // data={substitutes[key]}
+              // favorites={favorites}
+              // setFavorites={setFavorites}
             />
           )}
           exact
