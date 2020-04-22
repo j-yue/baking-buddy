@@ -1,11 +1,11 @@
 import React from "react";
 import SVG from "react-inlinesvg";
-import CardButton from "./CardButton";
+import CardButtonLink from "./CardButtonLink";
 
 const SearchCardButton = ({ ...props }) => {
   const { src } = props;
   return (
-    <CardButton
+    <CardButtonLink
       {...props}
       component={() => <SVG src={require(`../icons/${src}.svg`)} width={50} />}
     />

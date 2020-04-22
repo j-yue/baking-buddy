@@ -1,11 +1,11 @@
 import React from "react";
 
-import CardButton from "./CardButton";
+import CardButtonLink from "./CardButtonLink";
 
 const HomeCardButton = ({ ...props }) => {
   const { component: Icon } = props;
   return (
-    <CardButton
+    <CardButtonLink
       {...props}
       component={() => <Icon fontSize="large" color="inherit" />}
     />
