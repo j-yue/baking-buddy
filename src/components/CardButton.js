@@ -9,7 +9,13 @@ const CardButton = ({ ...props }) => {
   const { name, component: Component } = props;
   const theme = useTheme();
   return (
-    <Card style={{ padding: ".5rem", background: theme.palette.primary.light }}>
+    <Card
+      style={{
+        padding: ".5rem",
+        background: theme.palette.primary.light,
+        color: theme.palette.primary.contrastText,
+      }}
+    >
       <Grid
         container
         direction="column"
