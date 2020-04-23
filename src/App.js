@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import { Switch, Route, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
-// import Container from "@material-ui/core/Container";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-// import Typography from "@material-ui/core/Typography";
 import "./App.css";
-import Faves from "./components/Faves";
-import Home from "./components/Home";
-import Search from "./components/Search";
-import Settings from "./components/Settings";
-import SUBSTITUTES from "./data";
-import SubstituteRoutes from "./components/SubstituteRoutes";
 import Navbar from "./components/Navbar";
 import FavoritesContext from "./context/FavoritesContext";
-// import FavesRoutes from "./components/FavesRoutes";
 import * as PALETTES from "./palettes.js";
-// import SubstituteCard from "./SubstituteCard";
-import Substitute from "./components/Substitute";
+import AllRoutes from "./components/AllRoutes";
 import { createTheme } from "./theme.js";
 const headerFromPath = (path) => {
   const pathName = path.pathname;
@@ -72,31 +62,13 @@ const App = () => {
           alignItems="center"
         >
           <Grid item style={{ height: "100%", width: "90%" }}>
-            <Switch>
-              <Route path="/" component={Home} exact />
-              <Route
-                path="/faves"
-                component={() => (
-                  <Faves favorites={favorites} data={SUBSTITUTES} />
-                )}
-                exact
-              />
-              <Route
-                path="/settings"
-                component={() => (
-                  <Settings
-                    palette={palette}
-                    setPalette={setPalette}
-                    vegan={vegan}
-                    setVegan={setVegan}
-                  />
-                )}
-                exact
-              />
-              <Route path="/search" component={Search} exact />
-
-              <SubstituteRoutes substitutes={SUBSTITUTES} />
-            </Switch>
+            <AllRoutes
+              favorites={favorites}
+              vegan={vegan}
+              setVegan={setVegan}
+              palette={palette}
+              setPalette={setPalette}
+            />
           </Grid>
         </Grid>
       </FavoritesContext.Provider>
