@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import SVG from "react-inlinesvg";
 import SubstituteCard from "./SubstituteCard";
-import Yield from "./Yield";
 import FavoritesContext from "../context/FavoritesContext";
 
 const showFaves = (location) => {
@@ -32,7 +32,9 @@ const Substitute = ({ ...props }) => {
       <Box p="1rem">
         <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
       </Box>
-      <Yield amount={amount} />
+      <Typography variant="body1" component="div">
+        {amount.join(" ")}
+      </Typography>
       <Grid container direction="column" justify="center" alignItems="center">
         {updatedSubstitutes.map((substitute) => (
           <Grid item style={{ width: "100%", margin: ".5rem 0" }} key={count++}>

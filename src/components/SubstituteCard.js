@@ -29,6 +29,7 @@ const SubstituteCard = ({ ...props }) => {
     <Card
       style={{
         background: theme.palette.primary.light,
+        color: theme.palette.primary.contrastText,
       }}
     >
       <CardContent>
