@@ -21,7 +21,6 @@ import * as PALETTES from "./palettes.js";
 // import SubstituteCard from "./SubstituteCard";
 import Substitute from "./components/Substitute";
 import { createTheme } from "./theme.js";
-
 const headerFromPath = (path) => {
   const pathName = path.pathname;
   if (pathName === "/") return "HOME";

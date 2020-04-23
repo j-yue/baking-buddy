@@ -1,25 +1,42 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 import Substitute from "./Substitute";
 import FavoritesContext from "../context/FavoritesContext";
+
+const FavesMessage = () => {
+  return (
+    <Typography variant="body1" component="div">
+      No saved substitutes
+    </Typography>
+  );
+};
+
+const favesBody = (favorites, key, substitutes) => {
+  if (favorites[key] === undefined) return <FavesMessage />;
+  return <Substitute data={substitutes[key]} ingredient={key} />;
+};
+
 const SubstituteRoutes = ({ ...props }) => {
-  // const { substitutes, favorites, setFavorites } = props;
   const { substitutes } = props;
   const { favorites } = useContext(FavoritesContext);
   return (
     <React.Fragment>
       {Object.keys(substitutes).map((key) => (
-        <Route
-          path={`/substitute/${key}`}
-          component={() =>
-            favorites[key] === undefined ? (
-              <div>no favorites for {substitutes[key].name}</div>
-            ) : (
+        <React.Fragment key={key}>
+          <Route
+            path={`/substitute/${key}`}
+            component={() => (
               <Substitute data={substitutes[key]} ingredient={key} />
-            )
-          }
-          key={key}
-        />
+            )}
+            exact
+          />
+          <Route
+            path={`/substitute/${key}/showFaves`}
+            component={() => favesBody(favorites, key, substitutes)}
+            exact
+          />
+        </React.Fragment>
       ))}
     </React.Fragment>
   );
