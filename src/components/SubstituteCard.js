@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Ingredient from "./Ingredient";
 import LikeButton from "./LikeButton";
-import FavoritesContext from "../context/FavoritesContext";
 
 const getIngredients = (data) => {
   let result = { ...data }; //copy data because delete mutates
@@ -20,12 +19,10 @@ const isFavorite = (favorites, id) => {
 };
 
 const SubstituteCard = ({ ...props }) => {
-  const { data, ingredient } = props;
+  const { data, ingredient, favorites, setFavorites } = props;
   const { id, vegan } = data;
   const ingredients = getIngredients(data);
   let count = 0;
-  const { favorites, setFavorites } = useContext(FavoritesContext);
-
   const theme = useTheme();
 
   return (

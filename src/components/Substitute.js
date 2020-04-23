@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useLocation } from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
 import SVG from "react-inlinesvg";
-import SUBSTITUTES from "../data";
 import SubstituteCard from "./SubstituteCard";
 import Yield from "./Yield";
+import FavoritesContext from "../context/FavoritesContext";
+
+const showFaves = (location) => {
+  return location.pathname.includes("showFaves");
+};
+
+const filterFavorites = (substitutes, favoritesValue) => {
+  const result = substitutes.filter((sub) => favoritesValue.includes(sub.id));
+  return result;
+};
 
 const Substitute = ({ ...props }) => {
   const { data, ingredient } = props;
   const { name, yield: amount, substitutes } = data;
+  const { favorites, setFavorites } = useContext(FavoritesContext);
+  const location = useLocation();
 
-  // const { ingredient, data } = props;
-  // const { name, yield: amount, substitutes } = data;
-  // const { name } = props;
-  // console.log(name, "substitutes");
-  // const { yield: amount, substitutes } = SUBSTITUTES[name];
-  // const [size, unit] = amount;
+  let updatedSubstitutes = showFaves(location)
+    ? filterFavorites(substitutes, favorites[ingredient])
+    : substitutes;
+
   let count = 0;
   return (
     <React.Fragment>
@@ -24,9 +34,14 @@ const Substitute = ({ ...props }) => {
       </Box>
       <Yield amount={amount} />
       <Grid container direction="column" justify="center" alignItems="center">
-        {substitutes.map((substitute) => (
+        {updatedSubstitutes.map((substitute) => (
           <Grid item style={{ width: "100%", margin: ".5rem 0" }} key={count++}>
-            <SubstituteCard data={substitute} ingredient={ingredient} />
+            <SubstituteCard
+              data={substitute}
+              ingredient={ingredient}
+              favorites={favorites}
+              setFavorites={setFavorites}
+            />
           </Grid>
         ))}
       </Grid>

@@ -16,8 +16,10 @@ import SUBSTITUTES from "./data";
 import SubstituteRoutes from "./components/SubstituteRoutes";
 import Navbar from "./components/Navbar";
 import FavoritesContext from "./context/FavoritesContext";
-
+// import FavesRoutes from "./components/FavesRoutes";
 import * as PALETTES from "./palettes.js";
+// import SubstituteCard from "./SubstituteCard";
+import Substitute from "./components/Substitute";
 import { createTheme } from "./theme.js";
 
 const headerFromPath = (path) => {
@@ -33,7 +35,9 @@ const headerFromPath = (path) => {
 const App = () => {
   const [favorites, setFavorites] = useState({
     EGG: [1, 4],
-    BAKING_SODA: [2, 3],
+    MILK: [1],
+    BUTTER: [2, 3],
+    HEAVY_CREAM: [2],
   });
 
   const history = useHistory();
@@ -74,11 +78,7 @@ const App = () => {
               <Route
                 path="/faves"
                 component={() => (
-                  <Faves
-                    favorites={favorites}
-                    setFavorites={setFavorites}
-                    data={SUBSTITUTES}
-                  />
+                  <Faves favorites={favorites} data={SUBSTITUTES} />
                 )}
                 exact
               />
@@ -96,11 +96,7 @@ const App = () => {
               />
               <Route path="/search" component={Search} exact />
 
-              <SubstituteRoutes
-                substitutes={SUBSTITUTES}
-                // favorites={favorites}
-                // setFavorites={setFavorites}
-              />
+              <SubstituteRoutes substitutes={SUBSTITUTES} />
             </Switch>
           </Grid>
         </Grid>

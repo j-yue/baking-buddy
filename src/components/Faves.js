@@ -1,63 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Dialog from "@material-ui/core/Dialog";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import SearchCardButton from "./SearchCardButton";
-import SubstituteCard from "./SubstituteCard";
+import SUBSTITUTES from "../data";
 
-/*
-favorites = {
-  INGREDIENTKEY: [array of ids]
-}
-*/
+const FavesButtons = ({ favorites }) => {
+  const result = Object.keys(favorites).map((key) => (
+    <Grid item key={key} style={{ width: "45%", marginBottom: "1rem" }}>
+      <SearchCardButton
+        path={`/substitute/${key}/showFaves`}
+        name={SUBSTITUTES[key]["name"]}
+        src={key}
+      />
+    </Grid>
+  ));
+
+  return result;
+};
 
 const Faves = ({ ...props }) => {
-  const { favorites, setFavorites, data } = props;
-  const [showDialog, setshowDialog] = useState(false);
-  const [dialogBody, setDialogBody] = useState(null);
-  const keys = Object.keys(favorites);
-
+  const { favorites } = props;
   return (
     <React.Fragment>
       <Grid
         container
         direction="row"
-        justify="space-evenly"
+        justify="space-between"
         alignItems="center"
       >
-        {keys.map((key) => (
-          <Grid
-            item
-            key={key}
-            onClick={() => {
-              setshowDialog(true);
-              setDialogBody(data[key]);
-            }}
-            style={{ width: "40%" }}
-          >
-            <SearchCardButton
-              name={data[key]["name"]}
-              src={key}
-              path={"/faves"}
-            />
-          </Grid>
-        ))}
+        <FavesButtons favorites={favorites} />
       </Grid>
-      {dialogBody && (
-        <Dialog
-          open={showDialog}
-          onClose={() => setshowDialog(false)}
-          scroll="paper"
-        >
-          <DialogTitle>{dialogBody.name.toUpperCase()}</DialogTitle>
-          <DialogContent>
-            {dialogBody["substitutes"].map((substitute) => (
-              <SubstituteCard data={substitute} />
-            ))}
-          </DialogContent>
-        </Dialog>
-      )}
     </React.Fragment>
   );
 };
