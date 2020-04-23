@@ -14,7 +14,14 @@ const addFavorite = (id, ingredient, favorites, setFavorites) => {
 
 const removeFavorite = (id, ingredient, favorites, setFavorites) => {
   const newList = favorites[ingredient].filter((element) => element != id);
+  // console.log(newList);
+  //if ingredient has no saved substitutes, remove it from the faves list
   setFavorites({ ...favorites, [ingredient]: newList });
+  if (newList.length < 1) {
+    const copy = { ...favorites };
+    delete copy[ingredient];
+    setFavorites(copy);
+  }
 };
 
 const handleClick = (status, id, ingredient, favorites, setFavorites) => {
