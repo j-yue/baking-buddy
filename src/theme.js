@@ -33,9 +33,12 @@ const createTheme = (colors) => {
       body2: {
         fontSize: "1rem",
       },
-      subtitle1: {
+    },
+    variants: {
+      vegan: {
+        fontFamily: "Noto Sans, Ubuntu, sans-serif",
+        float: "right",
         fontWeight: "bold",
-        color: "#525A33",
         fontSize: "1.5rem",
         textTransform: "uppercase",
       },
