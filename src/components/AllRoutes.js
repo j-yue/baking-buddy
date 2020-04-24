@@ -4,6 +4,7 @@ import Home from "./Home";
 import Settings from "./Settings";
 import Faves from "./Faves";
 import Search from "./Search";
+import Info from "./Info";
 import SubstituteRoutes from "./SubstituteRoutes";
 import SUBSTITUTES from "../data";
 
@@ -30,6 +31,7 @@ const AllRoutes = ({ ...props }) => {
         exact
       />
       <Route path="/search" component={Search} exact />
+      <Route path="/info" component={Info} exact />
 
       <SubstituteRoutes substitutes={SUBSTITUTES} />
     </Switch>
