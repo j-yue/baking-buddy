@@ -61,7 +61,10 @@ const App = () => {
           justify="center"
           alignItems="center"
         >
-          <Grid item style={{ height: "100%", width: "90%" }}>
+          <Grid
+            item
+            style={{ height: "100%", width: "90%", padding: "1rem 0" }}
+          >
             <AllRoutes
               favorites={favorites}
               vegan={vegan}

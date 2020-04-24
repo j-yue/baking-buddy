@@ -7,7 +7,7 @@ const Settings = ({ ...props }) => {
   const { vegan, setVegan, palette, setPalette } = props;
   return (
     <React.Fragment>
-      <Box mb="2.5rem" mt="1rem">
+      <Box>
         <VeganSettings status={vegan} vegan={vegan} setVegan={setVegan} />
       </Box>
       <Box pb="2rem">
