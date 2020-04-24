@@ -48,22 +48,26 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Navbar screen={screen} history={history} />
+      <Navbar screen={screen} history={history} theme={theme} />
       <FavoritesContext.Provider value={{ favorites, setFavorites }}>
         <Grid
           container
           className="App"
           style={{
+            ...theme.variants.center,
+            alignItems: "stretch",
+            // alignItems: "flex-start",
             minHeight: "85vh",
             background: theme.palette.secondary.light,
           }}
-          direction="row"
-          justify="center"
-          alignItems="center"
         >
           <Grid
             item
-            style={{ height: "100%", width: "90%", padding: "1rem 0" }}
+            style={{
+              // minHeight: "85vh",
+              width: "90%",
+              padding: "2.5rem 0",
+            }}
           >
             <AllRoutes
               favorites={favorites}

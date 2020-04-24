@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SettingsIcon from "@material-ui/icons/Settings";
@@ -19,19 +19,20 @@ const Home = () => {
   return (
     <Grid
       container
-      direction="row"
-      justify="space-evenly"
-      alignItems="center"
       style={{
         height: "100%",
-        width: "100%",
+        alignItems: "center",
+        justifyContent: "space-evenly",
       }}
     >
       {Object.keys(ACTIONS).map((action) => (
         <Grid
           item
           key={action}
-          style={{ width: "40%", height: "fit-content", marginBottom: "1rem" }}
+          style={{
+            width: "40%",
+            height: "fit-content",
+          }}
         >
           <HomeCardButton
             name={action}

@@ -42,6 +42,12 @@ const createTheme = (colors) => {
         fontSize: "1.5rem",
         textTransform: "uppercase",
       },
+      center: {
+        display: "flex",
+        flexFlow: "row nowrap",
+        justifyContent: "center",
+        alignItems: "center",
+      },
     },
   });
 };

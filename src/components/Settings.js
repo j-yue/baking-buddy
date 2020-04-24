@@ -10,7 +10,7 @@ const Settings = ({ ...props }) => {
       <Box>
         <VeganSettings status={vegan} vegan={vegan} setVegan={setVegan} />
       </Box>
-      <Box pb="2rem">
+      <Box>
         <ThemeSettings palette={palette} setPalette={setPalette} />
       </Box>
     </React.Fragment>

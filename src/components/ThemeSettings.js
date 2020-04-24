@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useTheme } from "@material-ui/core/styles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import FormControl from "@material-ui/core/FormControl";
@@ -22,6 +22,7 @@ const PaletteRadio = ({ palette }) => {
 
 const ThemeSettings = ({ ...props }) => {
   const { palette, setPalette } = props;
+  const theme = useTheme();
   const result = Object.keys(PALETTES).map((palette) => (
     <PaletteRadio palette={palette} key={palette} />
   ));
@@ -37,10 +38,8 @@ const ThemeSettings = ({ ...props }) => {
           onChange={(e) => setPalette(e.target.value)}
           style={{
             width: "100%",
-            display: "flex",
-            flexFlow: "row wrap",
-            justifyContent: "center",
-            alignItems: "center",
+            ...theme.variants.center,
+            flexWrap: "wrap",
             paddingTop: "1rem",
           }}
         >

@@ -11,16 +11,14 @@ const homeIconVisibility = (screen) =>
   screen === "HOME" ? "hidden" : "visible";
 
 const Navbar = ({ ...props }) => {
-  const { screen, history } = props;
+  const { screen, history, theme } = props;
 
   return (
     <AppBar position="static" style={{ textAlign: "center", height: "15vh" }}>
       <Toolbar
         style={{
-          display: "flex",
-          flexFlow: "row nowrap",
+          ...theme.variants.center,
           justifyContent: "space-between",
-          alignItems: "center",
           height: "100%",
         }}
       >

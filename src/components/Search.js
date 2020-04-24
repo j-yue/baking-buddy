@@ -26,7 +26,7 @@ const Search = () => {
   const theme = useTheme();
   return (
     <React.Fragment>
-      <Box p="1.5rem 0 1rem 0">
+      <Box pb="2.5rem">
         <InputBase
           placeholder="Search ingredient"
           startAdornment={
@@ -59,7 +59,7 @@ const Search = () => {
               item
               style={{
                 width: "45%",
-                margin: "1rem 0",
+                marginBottom: "1.5rem",
               }}
               key={key}
             >
