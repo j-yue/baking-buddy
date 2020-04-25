@@ -18,7 +18,7 @@ const createTheme = (colors) => {
       ].join(","),
       fontSize: 10,
       h1: {
-        fontSize: "5vh",
+        fontSize: "8vh",
       },
       body1: {
         fontFamily: [
@@ -32,6 +32,13 @@ const createTheme = (colors) => {
       },
       body2: {
         fontSize: "1rem",
+      },
+    },
+    overrides: {
+      MuiIconButton: {
+        root: {
+          padding: 0,
+        },
       },
     },
     variants: {

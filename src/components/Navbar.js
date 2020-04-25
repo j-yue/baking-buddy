@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import HomeIcon from "@material-ui/icons/Home";
@@ -14,31 +13,41 @@ const Navbar = ({ ...props }) => {
   const { screen, history, theme } = props;
 
   return (
-    <AppBar position="static" style={{ textAlign: "center", height: "15vh" }}>
-      <Toolbar
+    <AppBar
+      position="static"
+      style={{
+        textAlign: "center",
+        height: "15vh",
+        padding: "1vh 5%",
+        ...theme.variants.center,
+        justifyContent: "space-between",
+      }}
+    >
+      <IconButton
         style={{
-          ...theme.variants.center,
-          justifyContent: "space-between",
-          height: "100%",
+          color: "inherit",
+        }}
+        onClick={() => history.goBack()}
+      >
+        <ArrowBackIcon style={{ fontSize: "8vh" }} />
+      </IconButton>
+      <Typography variant="h1" component="h1">
+        {screen}
+      </Typography>
+      <IconButton
+        style={{
+          color: "inherit",
+          visibility: homeIconVisibility(screen),
         }}
       >
-        <IconButton
-          style={{ color: "inherit" }}
-          onClick={() => history.goBack()}
+        <Link
+          to="/"
+          style={{ color: "inherit", fontSize: "8vh" }}
+          className="linkhome"
         >
-          <ArrowBackIcon fontSize="large" />
-        </IconButton>
-        <Typography variant="h1" component="h1" style={{}}>
-          {screen}
-        </Typography>
-        <IconButton
-          style={{ color: "inherit", visibility: homeIconVisibility(screen) }}
-        >
-          <Link to="/" style={{ color: "inherit" }}>
-            <HomeIcon fontSize="large" />
-          </Link>
-        </IconButton>
-      </Toolbar>
+          <HomeIcon style={{ fontSize: "8vh" }} />
+        </Link>
+      </IconButton>
     </AppBar>
   );
 };
