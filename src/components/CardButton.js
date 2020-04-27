@@ -23,6 +23,7 @@ const CardButton = ({ ...props }) => {
           ...theme.variants.cardButton,
           ...theme.variants.center,
           flexFlow: "column nowrap",
+          minWidth: "100%",
         }}
       >
         <Grid item>
