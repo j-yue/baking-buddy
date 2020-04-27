@@ -19,7 +19,8 @@ const headerFromPath = (path) => {
 
   const splitPath = pathName.split("/");
 
-  if (splitPath[1] === "substitute") return splitPath[2].replace("_", " ");
+  console.log(splitPath);
+  if (splitPath[1] === "substitute") return splitPath[2].split("_").join(" ");
   return splitPath[1].toUpperCase();
 };
 

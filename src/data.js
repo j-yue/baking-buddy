@@ -220,7 +220,7 @@ const HEAVY_CREAM = {
 };
 
 const SELF_RISING_FLOUR = {
-  name: "self-rising flour",
+  name: "self rising flour",
   purpose: "foundation",
   yield: [1, "cup"],
   substitutes: [
