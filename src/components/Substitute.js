@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { useTheme } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -18,7 +19,7 @@ const filterFavorites = (substitutes, favoritesValue) => {
 
 const Substitute = ({ ...props }) => {
   const { data, ingredient } = props;
-  const { name, yield: amount, substitutes } = data;
+  const { yield: amount, substitutes } = data;
   const { favorites, setFavorites } = useContext(FavoritesContext);
   const location = useLocation();
 
@@ -27,15 +28,26 @@ const Substitute = ({ ...props }) => {
     : substitutes;
 
   let count = 0;
+
+  const theme = useTheme();
+
   return (
     <React.Fragment>
       <Box p="1rem">
         <SVG src={require(`../icons/${ingredient}.svg`)} width={100} />
       </Box>
-      <Typography variant="body1" component="div">
+      <Typography
+        variant="body1"
+        component="div"
+        style={{ marginBottom: "1rem" }}
+      >
+        <span style={{ ...theme.variants.yield }}>yield:</span>
         {amount.join(" ")}
       </Typography>
-      <Grid container direction="column" justify="center" alignItems="center">
+      <Grid
+        container
+        style={{ ...theme.variants.center, flexFlow: "column nowrap" }}
+      >
         {updatedSubstitutes.map((substitute) => (
           <Grid item style={{ width: "100%", margin: ".5rem 0" }} key={count++}>
             <SubstituteCard

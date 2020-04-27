@@ -16,6 +16,7 @@ const ACTIONS = {
 };
 
 const Home = () => {
+  const theme = useTheme();
   return (
     <Grid
       container
@@ -26,14 +27,7 @@ const Home = () => {
       }}
     >
       {Object.keys(ACTIONS).map((action) => (
-        <Grid
-          item
-          key={action}
-          style={{
-            width: "40%",
-            height: "fit-content",
-          }}
-        >
+        <Grid item key={action}>
           <HomeCardButton
             name={action}
             src={action}

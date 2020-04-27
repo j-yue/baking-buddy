@@ -35,13 +35,11 @@ const SubstituteCard = ({ ...props }) => {
       <CardContent>
         {vegan && (
           <Typography
-            // variant="subtitle1"
             component="span"
             style={{
               ...theme.variants.vegan,
               color: theme.palette.secondary.main,
             }}
-            // style={{ float: "right" }}
           >
             vegan
           </Typography>

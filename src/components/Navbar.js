@@ -12,15 +12,17 @@ const homeIconVisibility = (screen) =>
 const Navbar = ({ ...props }) => {
   const { screen, history, theme } = props;
 
+  const fontSize = theme.typography.h1.fontSize;
+
   return (
     <AppBar
       position="static"
       style={{
-        textAlign: "center",
         height: "15vh",
         padding: "1vh 5%",
         ...theme.variants.center,
         justifyContent: "space-between",
+        textAlign: "center",
       }}
     >
       <IconButton
@@ -29,9 +31,9 @@ const Navbar = ({ ...props }) => {
         }}
         onClick={() => history.goBack()}
       >
-        <ArrowBackIcon style={{ fontSize: "8vh" }} />
+        <ArrowBackIcon style={{ fontSize }} />
       </IconButton>
-      <Typography variant="h1" component="h1">
+      <Typography variant="h1" component="h1" style={{ padding: ".25rem" }}>
         {screen}
       </Typography>
       <IconButton
@@ -40,12 +42,8 @@ const Navbar = ({ ...props }) => {
           visibility: homeIconVisibility(screen),
         }}
       >
-        <Link
-          to="/"
-          style={{ color: "inherit", fontSize: "8vh" }}
-          className="linkhome"
-        >
-          <HomeIcon style={{ fontSize: "8vh" }} />
+        <Link to="/" style={{ color: "inherit" }}>
+          <HomeIcon style={{ fontSize }} />
         </Link>
       </IconButton>
     </AppBar>

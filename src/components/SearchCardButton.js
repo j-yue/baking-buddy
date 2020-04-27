@@ -7,7 +7,9 @@ const SearchCardButton = ({ ...props }) => {
   return (
     <CardButtonLink
       {...props}
-      component={() => <SVG src={require(`../icons/${src}.svg`)} width={50} />}
+      component={() => (
+        <SVG src={require(`../icons/${src}.svg`)} height="15vh" />
+      )}
     />
   );
 };

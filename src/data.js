@@ -91,7 +91,7 @@ const BUTTERMILK = {
     {
       id: 5,
       ingredient1: ["milk", 1, "cup"],
-      ingredient2: ["cream of tartar (potassium bitartrate", 1.5, "tsp"],
+      ingredient2: ["cream of tartar", 1.5, "tsp"],
       vegan: false,
     },
   ],

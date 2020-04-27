@@ -8,20 +8,22 @@ import Grid from "@material-ui/core/Grid";
 const CardButton = ({ ...props }) => {
   const { name, component: Component } = props;
   const theme = useTheme();
+  const { light, contrastText } = theme.palette.primary;
   return (
     <Card
       style={{
         padding: ".5rem",
-        background: theme.palette.primary.light,
-        color: theme.palette.primary.contrastText,
+        background: light,
+        color: contrastText,
       }}
     >
       <Grid
         container
-        direction="column"
-        justify="center"
-        alignItems="center"
-        style={{ minHeight: "20vh" }}
+        style={{
+          ...theme.variants.cardButton,
+          ...theme.variants.center,
+          flexFlow: "column nowrap",
+        }}
       >
         <Grid item>
           <Component />

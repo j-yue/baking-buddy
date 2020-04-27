@@ -5,12 +5,14 @@ import { useHistory, useLocation } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import "./App.css";
+
 import Navbar from "./components/Navbar";
 import FavoritesContext from "./context/FavoritesContext";
-import * as PALETTES from "./palettes.js";
 import AllRoutes from "./components/AllRoutes";
+
 import { createTheme } from "./theme.js";
+import "./App.css";
+
 const headerFromPath = (path) => {
   const pathName = path.pathname;
   if (pathName === "/") return "HOME";
@@ -32,7 +34,7 @@ const App = () => {
   const history = useHistory();
   const location = useLocation();
   const [vegan, setVegan] = useState(false);
-  const [palette, setPalette] = useState("pinkLemonade");
+  const [palette, setPalette] = useState("matcha");
   const [theme, setTheme] = useState(createTheme(palette));
   const [screen, setScreen] = useState(headerFromPath(location));
 
@@ -56,17 +58,16 @@ const App = () => {
           style={{
             ...theme.variants.center,
             alignItems: "stretch",
-            // alignItems: "flex-start",
             minHeight: "85vh",
             background: theme.palette.secondary.light,
+            color: theme.palette.secondary.contrastText,
           }}
         >
           <Grid
             item
             style={{
-              // minHeight: "85vh",
               width: "90%",
-              padding: "2.5rem 0",
+              padding: "5vh 0",
             }}
           >
             <AllRoutes

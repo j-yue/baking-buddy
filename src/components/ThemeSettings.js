@@ -40,7 +40,7 @@ const ThemeSettings = ({ ...props }) => {
             width: "100%",
             ...theme.variants.center,
             flexWrap: "wrap",
-            paddingTop: "1rem",
+            paddingTop: ".5rem",
           }}
         >
           {result}

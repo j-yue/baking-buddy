@@ -24,22 +24,19 @@ const handleChange = (search, setSearchResults) => {
 const Search = () => {
   const [searchResults, setSearchResults] = useState(INGREDIENTS);
   const theme = useTheme();
+  const { fontSize } = theme.typography.h1;
   return (
     <React.Fragment>
-      <Box pb="2.5rem">
+      <Box pb="5vh">
         <InputBase
           placeholder="Search ingredient"
           startAdornment={
             <InputAdornment position="start">
-              <SearchIcon fontSize="large" color="primary" />
+              <SearchIcon style={{ fontSize }} color="primary" />
             </InputAdornment>
           }
           style={{
-            width: "100%",
-            padding: "1rem",
-            background: "#fff",
-            border: "2px solid black",
-            borderRadius: "5px",
+            ...theme.variants.searchInput,
             borderColor: theme.palette.secondary.dark,
           }}
           onChange={(e) => handleChange(e.target.value, setSearchResults)}
