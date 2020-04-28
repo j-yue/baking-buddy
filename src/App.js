@@ -34,17 +34,20 @@ const loadFromStorage = (key) => {
 const App = () => {
   const history = useHistory();
   const location = useLocation();
-  const [favorites, setFavorites] = useState(null);
-  const [vegan, setVegan] = useState(null);
-  const [palette, setPalette] = useState("blackForest");
+  const [favorites, setFavorites] = useState({});
+  const [vegan, setVegan] = useState(false);
+  const [palette, setPalette] = useState("pinkLemonade");
   const [theme, setTheme] = useState(createTheme(palette));
   const [screen, setScreen] = useState(headerFromPath(location));
 
   useEffect(() => {
-    const { favorites, vegan, palette } = loadFromStorage("data");
-    setFavorites(favorites);
-    setVegan(vegan);
-    setPalette(palette);
+    const data = loadFromStorage("data");
+    if (data) {
+      const { favorites, vegan, palette } = data;
+      setFavorites(favorites);
+      setVegan(vegan);
+      setPalette(palette);
+    }
   }, []);
 
   useEffect(() => {
