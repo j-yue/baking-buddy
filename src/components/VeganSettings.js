@@ -6,13 +6,13 @@ const VeganMessage = ({ status }) => {
   if (status)
     return (
       <Typography variant="body1" component="p">
-        hide nonvegan substitutes
+        Nonvegan substitutes are hidden.
       </Typography>
     );
   else
     return (
       <Typography variant="body1" component="p">
-        show nonvegan substitutes
+        All substitutes are shown.
       </Typography>
     );
 };
