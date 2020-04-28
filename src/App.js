@@ -19,21 +19,33 @@ const headerFromPath = (path) => {
 
   const splitPath = pathName.split("/");
 
-  console.log(splitPath);
   if (splitPath[1] === "substitute") return splitPath[2].split("_").join(" ");
   return splitPath[1].toUpperCase();
 };
 
+const handleUnmount = () => {
+  localStorage.setItem("test", "wassup my mahhhh");
+};
+
+const saveToStorage = (key, data) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
+
+const loadFromStorage = (key) => {
+  return JSON.parse(localStorage.getItem(key));
+};
+
 const App = () => {
-  const [favorites, setFavorites] = useState({
-    EGG: [1, 4],
-    MILK: [1],
-    BUTTER: [2, 3],
-    HEAVY_CREAM: [2],
-  });
+  // const [favorites, setFavorites] = useState({
+  //   EGG: [1, 4],
+  //   MILK: [1],
+  //   BUTTER: [2, 3],
+  //   HEAVY_CREAM: [2],
+  // });
 
   const history = useHistory();
   const location = useLocation();
+  const [favorites, setFavorites] = useState({});
   const [vegan, setVegan] = useState(false);
   const [palette, setPalette] = useState("matcha");
   const [theme, setTheme] = useState(createTheme(palette));
@@ -47,6 +59,10 @@ const App = () => {
   useEffect(() => {
     setScreen(headerFromPath(location));
   }, [location]);
+
+  useEffect(() => {
+    saveToStorage("favorites", favorites);
+  }, [favorites]);
 
   return (
     <ThemeProvider theme={theme}>
