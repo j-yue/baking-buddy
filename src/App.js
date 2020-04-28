@@ -23,10 +23,6 @@ const headerFromPath = (path) => {
   return splitPath[1].toUpperCase();
 };
 
-const handleUnmount = () => {
-  localStorage.setItem("test", "wassup my mahhhh");
-};
-
 const saveToStorage = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
@@ -36,22 +32,21 @@ const loadFromStorage = (key) => {
 };
 
 const App = () => {
-  // const [favorites, setFavorites] = useState({
-  //   EGG: [1, 4],
-  //   MILK: [1],
-  //   BUTTER: [2, 3],
-  //   HEAVY_CREAM: [2],
-  // });
-
   const history = useHistory();
   const location = useLocation();
-  const [favorites, setFavorites] = useState({});
-  const [vegan, setVegan] = useState(false);
-  const [palette, setPalette] = useState("matcha");
+  const [favorites, setFavorites] = useState(null);
+  const [vegan, setVegan] = useState(null);
+  const [palette, setPalette] = useState("blackForest");
   const [theme, setTheme] = useState(createTheme(palette));
   const [screen, setScreen] = useState(headerFromPath(location));
 
-  //whenever palette changes update the theme
+  useEffect(() => {
+    const { favorites, vegan, palette } = loadFromStorage("data");
+    setFavorites(favorites);
+    setVegan(vegan);
+    setPalette(palette);
+  }, []);
+
   useEffect(() => {
     setTheme(createTheme(palette));
   }, [palette]);
@@ -61,8 +56,8 @@ const App = () => {
   }, [location]);
 
   useEffect(() => {
-    saveToStorage("favorites", favorites);
-  }, [favorites]);
+    saveToStorage("data", { favorites, vegan, palette });
+  }, [favorites, vegan, palette]);
 
   return (
     <ThemeProvider theme={theme}>
