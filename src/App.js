@@ -23,6 +23,13 @@ const headerFromPath = (path) => {
   return splitPath[1].toUpperCase();
 };
 
+const updateHooks = (data, setFavorites, setVegan, setPalette) => {
+  const { favorites, vegan, palette } = data;
+  setFavorites(favorites);
+  setVegan(vegan);
+  setPalette(palette);
+};
+
 const saveToStorage = (key, data) => {
   localStorage.setItem(key, JSON.stringify(data));
 };
@@ -36,18 +43,13 @@ const App = () => {
   const location = useLocation();
   const [favorites, setFavorites] = useState({});
   const [vegan, setVegan] = useState(false);
-  const [palette, setPalette] = useState("pinkLemonade");
+  const [palette, setPalette] = useState("coffee");
   const [theme, setTheme] = useState(createTheme(palette));
   const [screen, setScreen] = useState(headerFromPath(location));
 
   useEffect(() => {
     const data = loadFromStorage("data");
-    if (data) {
-      const { favorites, vegan, palette } = data;
-      setFavorites(favorites);
-      setVegan(vegan);
-      setPalette(palette);
-    }
+    if (data) updateHooks(data, setFavorites, setVegan, setPalette);
   }, []);
 
   useEffect(() => {
