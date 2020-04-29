@@ -1,5 +1,4 @@
 import React from "react";
-import { useTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import SettingsIcon from "@material-ui/icons/Settings";
@@ -16,7 +15,6 @@ const ACTIONS = {
 };
 
 const Home = () => {
-  const theme = useTheme();
   return (
     <Grid
       container

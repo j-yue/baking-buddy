@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 
 const FavoritesContext = createContext({});
 FavoritesContext.displayName = "Favorites Context";
