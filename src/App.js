@@ -11,32 +11,15 @@ import FavoritesContext from "./context/FavoritesContext";
 import AllRoutes from "./components/AllRoutes";
 
 import { createTheme } from "./theme.js";
+import {
+  saveToStorage,
+  loadFromStorage,
+  updateHooks,
+} from "./components/utils/storage.js";
+
+import { headerFromPath } from "./components/utils/path.js";
+
 import "./App.css";
-
-const headerFromPath = (path) => {
-  const pathName = path.pathname;
-  if (pathName === "/") return "HOME";
-
-  const splitPath = pathName.split("/");
-
-  if (splitPath[1] === "substitute") return splitPath[2].split("_").join(" ");
-  return splitPath[1].toUpperCase();
-};
-
-const updateHooks = (data, setFavorites, setVegan, setPalette) => {
-  const { favorites, vegan, palette } = data;
-  setFavorites(favorites);
-  setVegan(vegan);
-  setPalette(palette);
-};
-
-const saveToStorage = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
-};
-
-const loadFromStorage = (key) => {
-  return JSON.parse(localStorage.getItem(key));
-};
 
 const App = () => {
   const history = useHistory();
@@ -61,7 +44,7 @@ const App = () => {
   }, [location]);
 
   useEffect(() => {
-    saveToStorage("data", { favorites, vegan, palette });
+    saveToStorage({ favorites, vegan, palette });
   }, [favorites, vegan, palette]);
 
   return (
