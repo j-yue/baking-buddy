@@ -1,15 +1,23 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./Home";
 import Settings from "./Settings";
 import Faves from "./Faves";
 import Search from "./Search";
 import Info from "./Info";
-import SubstituteRoutes from "./SubstituteRoutes";
 import SUBSTITUTES from "../data";
+import Substitute from "./Substitute";
+import Message from "./Message";
+
+const favesBody = (favorites, key, substitutes) => {
+  const status = favorites[key] === undefined;
+  if (status) return <Message status={status} message="No saved substitutes" />;
+  return <Substitute data={substitutes[key]} ingredient={key} />;
+};
 
 const AllRoutes = ({ ...props }) => {
   const { favorites, palette, setPalette, vegan, setVegan } = props;
+  const substitutes = SUBSTITUTES;
   return (
     <Switch>
       <Route path="/" component={Home} exact />
@@ -33,7 +41,26 @@ const AllRoutes = ({ ...props }) => {
       <Route path="/search" component={Search} exact />
       <Route path="/info" component={Info} exact />
 
-      <SubstituteRoutes substitutes={SUBSTITUTES} />
+      {Object.keys(substitutes).map((key) => (
+        <Route
+          path={`/substitute/${key}`}
+          component={() => (
+            <Substitute data={substitutes[key]} ingredient={key} />
+          )}
+          exact
+          key={key}
+        />
+      ))}
+
+      {Object.keys(substitutes).map((key) => (
+        <Route
+          path={`/substitute/${key}/showFaves`}
+          component={() => favesBody(favorites, key, substitutes)}
+          exact
+          key={key}
+        />
+      ))}
+      <Redirect to="/" />
     </Switch>
   );
 };
