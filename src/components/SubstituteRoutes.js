@@ -1,19 +1,12 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
-import Typography from "@material-ui/core/Typography";
 import Substitute from "./Substitute";
+import Message from "./Message";
 import FavoritesContext from "../context/FavoritesContext";
 
-const FavesMessage = () => {
-  return (
-    <Typography variant="body1" component="div">
-      No saved substitutes
-    </Typography>
-  );
-};
-
 const favesBody = (favorites, key, substitutes) => {
-  if (favorites[key] === undefined) return <FavesMessage />;
+  const status = favorites[key] === undefined;
+  if (status) return <Message status={status} message="No saved substitutes" />;
   return <Substitute data={substitutes[key]} ingredient={key} />;
 };
 

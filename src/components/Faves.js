@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import SearchCardButton from "./SearchCardButton";
+import Message from "./Message";
 import SUBSTITUTES from "../data";
 
 const FavesButtons = ({ favorites }) => {
@@ -18,18 +18,9 @@ const FavesButtons = ({ favorites }) => {
   return result;
 };
 
-const EmptyMessage = () => {
-  return (
-    <Typography variant="body1" component="div" style={{ margin: "auto" }}>
-      No saved substitutes
-    </Typography>
-  );
-};
-
-const isEmpty = (favorites) => Object.keys(favorites).length === 0;
-
 const Faves = ({ ...props }) => {
   const { favorites } = props;
+  const isEmpty = Object.keys(favorites).length === 0;
   return (
     <React.Fragment>
       <Grid
@@ -38,8 +29,8 @@ const Faves = ({ ...props }) => {
         justify="space-between"
         alignItems="center"
       >
-        {isEmpty(favorites) && <EmptyMessage />}
-        {!isEmpty(favorites) && <FavesButtons favorites={favorites} />}
+        {!isEmpty && <FavesButtons favorites={favorites} />}
+        <Message status={isEmpty} message="No saved substitute recipes" />
       </Grid>
     </React.Fragment>
   );

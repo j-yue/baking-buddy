@@ -8,6 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SUBSTITUTES from "../data";
 import SearchCardButton from "./SearchCardButton";
+import Message from "./Message";
 
 const INGREDIENTS = Object.keys(SUBSTITUTES).map((ingredient) => ({
   key: ingredient,
@@ -20,6 +21,8 @@ const handleChange = (search, setSearchResults) => {
   );
   setSearchResults(results);
 };
+
+const isEmpty = (results) => results.length === 0;
 
 const Search = () => {
   const [searchResults, setSearchResults] = useState(INGREDIENTS);
@@ -68,6 +71,7 @@ const Search = () => {
             </Grid>
           );
         })}
+        <Message status={isEmpty(searchResults)} message="No results" />
       </Grid>
     </React.Fragment>
   );
