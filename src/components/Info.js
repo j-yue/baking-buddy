@@ -36,7 +36,11 @@ const Info = () => {
         The substitutes have been compiled from the following sources:
       </Typography>
 
-      <Typography variant="body1" component="ul" style={{ listStyle: "none" }}>
+      <Typography
+        variant="body1"
+        component="ul"
+        style={{ listStyle: "none", padding: "3rem 0 0 0" }}
+      >
         {renderSources(linkStyling)}
       </Typography>
 
